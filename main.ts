@@ -1,12 +1,12 @@
-import { mkdirSync, writeFileSync, chmodSync } from "node:fs";
+import { chmodSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const forecast =
-  "Brinehaven: 9 degrees Celsius, gusts to 70 km/h, horizontal rain easing by dusk as the lighthouse Morse-codes an apology to the ferry.";
+const line =
+  "Brinehaven: 9 degrees Celsius, gusts to 70 km/h, horizontal rain easing by dusk; the lighthouse is apologizing in Morse to the ferries, insincerely.";
 
-const outDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
-mkdirSync(outDir, { recursive: true });
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
+mkdirSync(outputDir, { recursive: true });
 
-const outFile = join(outDir, "entry.txt");
-writeFileSync(outFile, forecast + "\n", "utf8");
-chmodSync(outFile, 0o644);
+const entryPath = join(outputDir, "entry.txt");
+writeFileSync(entryPath, line + "\n", "utf8");
+chmodSync(entryPath, 0o644);
